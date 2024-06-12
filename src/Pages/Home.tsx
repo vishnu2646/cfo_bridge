@@ -1,12 +1,50 @@
+import { TableColumn } from 'react-data-table-component';
 import { ContentCard, Topbar } from "../components";
 import { ContentTemplate, TitleTemplate } from '../Templates';
-import { dashboardInfo } from '../data/data';
+import { dashboardInfo, data, noSalesDataDataWithTotal, OutstandingCustomerWithTotal } from '../data/data';
+import { noSalesDataColumnType, OutstandingCustomerType } from '../Types/types';
 
-const data: string[] = [
-    "The Customer with the Highest Outstanding is 'Apurva Natvar Parikh & Co. Pvt. Ltd. with an Outstanding Balance of Rs.7.53 Lakhs",
-    "The Customer with the Highest Sales is Square Business Services Private Limited with a Total Sales of Rs.1.36 Lakhs",
-    "The Partner with the Highest Un-Recovered Customer Outstanding is 'Hitesh Kothari totalling to Rs.17.8 Lakhs",
-    "The Customer with the Highest Collection is 'Spliceforms Enterprise Solutions Private Limited and the total collection is Rs.2.36 Lakhs"
+const noSalesDataColumn: TableColumn<noSalesDataColumnType>[] = [
+	{
+		name: 'Customer',
+		selector: row => row.customer,
+        sortable: true,
+	},
+	{
+		name: 'Partner',
+		selector: row => row.partner,
+        sortable: true,
+	},
+	{
+		name: 'Balance',
+		selector: row => row.balance,
+        sortable: true,
+        cell: row => row.balance.toLocaleString()
+	}
+];
+
+const OutstandingCustomerData: TableColumn<OutstandingCustomerType>[] = [
+    {
+        name: 'Customer',
+        selector: row => row.customer,
+        sortable: true,
+    },
+    {
+        name: 'Partner',
+        selector: row => row.partner,
+        sortable: true,
+    },
+    {
+        name: 'Invoice Ref',
+        selector: row => row.invoice,
+        sortable: true,
+    },
+    {
+        name: 'Balance',
+        selector: row => row.balance,
+        sortable: true,
+        cell: row => row.balance.toLocaleString()
+    },
 ]
 
 const Home = () => {
@@ -41,8 +79,8 @@ const Home = () => {
                 </div>
                 <div className="home-container-wrapper">
                     <div className="home-container-contents">
-                        <ContentCard title="Customer with No Sales in the Past 3 Months but having oustanding"/>
-                        <ContentCard title="Customers with with Outstanding more than 120 Days"/>
+                        <ContentCard title="Customer with No Sales in the Past 3 Months but having oustanding" data={noSalesDataDataWithTotal} columns={noSalesDataColumn}/>
+                        <ContentCard title="Customers with with Outstanding more than 120 Days" data={OutstandingCustomerWithTotal} columns={OutstandingCustomerData}/>
                     </div>
                     <div className="home-info-content-cards">
                         {data.map((item, index) => {

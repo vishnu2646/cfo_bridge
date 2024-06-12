@@ -1,6 +1,35 @@
+import { TableColumn } from "react-data-table-component";
 import { ContentCard, Topbar } from "../components";
 import { ContentTemplate, TitleTemplate } from "../Templates";
-import { dashboardInfo } from "../data/data";
+import { dashboardInfo, collectionMonthDataWithTotal, collectionMonthData2, collectionSalesMonthData } from "../data/data";
+import { CollectionMonthSaleType, CollectionMonthType } from "../Types/types";
+
+const collectionMonthDataColumn: TableColumn<CollectionMonthType>[] = [
+    {
+        name: 'Customer',
+        selector: row => row.customer,
+        sortable: true,
+    },
+    {
+        name: 'Receipt/Coll',
+        selector: row => row.recipt,
+        sortable: true,
+        cell: row => row.recipt.toLocaleString()
+    }
+] 
+
+const collectionMonthSalesDataColumn: TableColumn<CollectionMonthSaleType>[] = [
+    {
+        name: 'Customer',
+        selector: row => row.customer,
+        sortable: true,
+    },
+    {
+        name: 'Sales',
+        selector: row => row.sales,
+        sortable: true
+    }
+] 
 
 const Debtor = ({locationState, setLocationState}: any) => {
     
@@ -10,6 +39,9 @@ const Debtor = ({locationState, setLocationState}: any) => {
         month: 'long',
         year: 'numeric',
     });
+
+    const monthData = locationState === 'debtor-collection' ? collectionMonthDataWithTotal : collectionSalesMonthData;
+    const column = locationState === 'debtor-collection' ? collectionMonthDataColumn : collectionMonthSalesDataColumn
 
     return (
         <>
@@ -39,8 +71,8 @@ const Debtor = ({locationState, setLocationState}: any) => {
                     }
                 </div>
                 <div className="debtor-content">
-                    <ContentCard title={`${locationState === 'debtor-collection' ? 'Collection' : 'Sales'} during the Month`} />
-                    <ContentCard title={`${locationState === 'debtor-collection' ? 'Collection' : 'Sales'} during the Month`} />
+                    <ContentCard title={`${locationState === 'debtor-collection' ? 'Collection' : 'Sales'} during the Month`} data={monthData} columns={column} />
+                    <ContentCard title={`${locationState === 'debtor-collection' ? 'Collection' : 'Sales'} during the Month`} data={collectionMonthData2} columns={column} />
                 </div>
             </div>
         </>

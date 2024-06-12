@@ -271,11 +271,13 @@
 
     .home-container-wrapper {
         margin-top: 10px;
+        width: 100%;
     }
 
     .home-container-contents {
-        display: flex;
-        gap: 20px;
+        display: flex !important;
+        gap: 20px !important;
+        width: 70% !important;
     }
 
     .home-container-contents .content-card {
@@ -335,4 +337,16 @@
         flex-wrap: wrap;
         width: 100%;
     }
+}
+
+.rdt_Table, .rdt_TableHeadRow, .rdt_TableRow {
+    background-color: transparent !important;
+}
+
+.rdt_Table div {
+    background-color: transparent !important;
+}
+
+.rdt_TableRow {
+    min-height: 0px !important;
 }
