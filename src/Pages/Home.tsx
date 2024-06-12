@@ -30,11 +30,6 @@ const OutstandingCustomerData: TableColumn<OutstandingCustomerType>[] = [
         sortable: true,
     },
     {
-        name: 'Partner',
-        selector: row => row.partner,
-        sortable: true,
-    },
-    {
         name: 'Invoice Ref',
         selector: row => row.invoice,
         sortable: true,

@@ -6,7 +6,6 @@ export type noSalesDataColumnType = {
 
 export type OutstandingCustomerType = {
     customer: string;
-	partner: string,
     invoice: string
     balance: number
 }

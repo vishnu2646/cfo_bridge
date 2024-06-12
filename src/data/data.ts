@@ -70,7 +70,6 @@ export const noSalesDataDataWithTotal = [
 
 interface OutstandingType {
     customer: string,
-    partner: string,
     invoice: string
     balance: number
 }
@@ -78,25 +77,21 @@ interface OutstandingType {
 export const OutstandingCustomer: OutstandingType[] = [
     {
         customer: 'Bridgelabz Solutions Pvt Ltd',
-        partner: 'Parag Vyavahare',
         invoice: '29/Oct/2022-23',
         balance: 168960
     },
     {
         customer: 'Beyondcolor Surface Solutions Private Limited',
-        partner: 'K.Srinivas',
         invoice: '19/Dec/2023-24',
         balance: 118000
     },
     {
         customer: 'Bridgelabz Solutions Pvt Ltd',
-        partner: 'Parag Vyavahare',
         invoice: '34/Nov/2022-23',
         balance: 11400
     },
     {
         customer:'Netrika Consulting India Pvt Ltd',
-        partner: 'Subramanian G',
         invoice: '65/Nov/2023-24',
         balance: 73750
     }
@@ -108,7 +103,6 @@ export const OutstandingCustomerWithTotal = [
     ...OutstandingCustomer,
     {
         customer: 'Total',
-        partner: '',
         invoice: '',
         balance: totalOutstanding
     }
