@@ -16,7 +16,7 @@ export const dashboardInfo: any[] = [
         value: 194700
     },
     {
-        images: Money,
+        image: Money,
         title: 'Receipts / Collections',
         value: 709610
     },
