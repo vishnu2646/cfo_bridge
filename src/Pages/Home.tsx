@@ -40,7 +40,7 @@ const OutstandingCustomerData: TableColumn<OutstandingCustomerType>[] = [
         sortable: true,
         cell: row => row.balance.toLocaleString()
     },
-]
+];
 
 const Home = () => {
     return (
