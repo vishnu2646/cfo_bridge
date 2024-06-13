@@ -345,7 +345,12 @@
         flex-wrap: wrap;
         width: 100%;
     }
+
+    .home-container-wrapper .home-container-contents {
+        width: 100% !important;
+    }
 }
+
 
 .rdt_Table, .rdt_TableHeadRow, .rdt_TableRow {
     background-color: transparent !important;
